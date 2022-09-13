@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const movieSchema = new mongoose.Schema({
-  fullName: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -17,17 +17,10 @@ const movieSchema = new mongoose.Schema({
     min: 0,
     max: 10,
   },
-  collaboration: {
-    type: [String],
-    default: [],
-  },
   isReleased: {
     type: Boolean,
   },
-  isBoss: {
-    type: Boolean,
-    default: false,
-  },
+  collaboration: [Object],
 });
 
 export default mongoose.model("movie", movieSchema);

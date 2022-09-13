@@ -28,3 +28,23 @@ export const getMovieById = async (req, res) => {
     console.error(error);
   }
 };
+
+export const getMovieByParticipants = async (req, res) => {
+  try {
+    const movie = await moviesModel.findOne();
+
+    const newCollection = await Promise.all(
+      movie.collaboration.map(async (participant) => {
+        if (participant.ref === "actor") {
+          return await actorsModel.findById(participant.id);
+        }
+        if (participant.ref === "producer") {
+          return await producersModel.findById(participant.id);
+        }
+      })
+    );
+    res.status(200).json(newCollection);
+  } catch (error) {
+    console.error(error);
+  }
+};

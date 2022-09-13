@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const producerSchema = new mongoose.Schema({
-  fullName: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -12,20 +12,11 @@ const producerSchema = new mongoose.Schema({
     max: 120,
     required: true,
   },
-  rating: {
-    type: Number,
-    min: 0,
-    max: 10,
-  },
   countOfMovies: {
     type: Number,
   },
   onVacation: {
     type: Boolean,
-  },
-  isBoss: {
-    type: Boolean,
-    default: false,
   },
 });
 

@@ -4,7 +4,7 @@ import moviesModel from "../models/moviesModel.js";
 
 export const getAllActors = async (req, res) => {
   try {
-    const all = await actorsModel.find({});
+    const all = await actorsModel.find();
     return res.status(202).json(all);
   } catch (error) {
     console.error(error);
@@ -13,7 +13,7 @@ export const getAllActors = async (req, res) => {
 
 export const getAllProducers = async (req, res) => {
   try {
-    const all = await producersModel.find({});
+    const all = await producersModel.find();
     return res.status(202).json(all);
   } catch (error) {
     console.error(error);
@@ -22,7 +22,7 @@ export const getAllProducers = async (req, res) => {
 
 export const getAllMovies = async (req, res) => {
   try {
-    const all = await moviesModel.find({});
+    const all = await moviesModel.find();
     return res.status(202).json(all);
   } catch (error) {
     console.error(error);
