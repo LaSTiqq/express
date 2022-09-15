@@ -31,7 +31,7 @@ export const getMovieById = async (req, res) => {
 
 export const getMovieByParticipants = async (req, res) => {
   try {
-    const movie = await moviesModel.findOne();
+    const movie = await moviesModel.findById(req.params.id);
 
     const newCollection = await Promise.all(
       movie.collaboration.map(async (participant) => {
